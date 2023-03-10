@@ -16,6 +16,7 @@ public class PlayerInputManager : MonoBehaviour
 
     #region references
     private PlayerMovementController _myPlayerMovementController;
+    private ShootComponent _shootComponent;
     #endregion
 
     #region methods
@@ -34,6 +35,7 @@ public class PlayerInputManager : MonoBehaviour
     void Start()
     {
         _myPlayerMovementController = GetComponent<PlayerMovementController>();
+        _shootComponent = GetComponent<ShootComponent>();
     }
 
     // Update is called once per frame
@@ -43,5 +45,10 @@ public class PlayerInputManager : MonoBehaviour
         _horizontalInput = Input.GetAxis("Horizontal");
         Vector3 movementInput = new Vector3(_horizontalInput, _verticalInput, 0);
         _myPlayerMovementController.SetMovementDirection(movementInput);
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            _shootComponent.Shoot();
+            
+        }
     }
 }
