@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
         for(int i=0; i<_personajesBlock.Length; i++)
         {
             if (_personajes[i]==true) _personajesBlock[i].SetActive(false);
-            else _personajesBlock[i].SetActive(true);
+            //else _personajesBlock[i].SetActive(true);
         }
     }
     #endregion

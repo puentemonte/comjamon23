@@ -6,7 +6,7 @@ public class EnemiesManager : MonoBehaviour
 {
     #region parameters
     private float _elapsedTime = 0f;
-    private float _duration = 2f;
+    private float _duration = 5f;
     float halfHeight;
     float halfWidth;
     float horizontalMin;

@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemiesCollisionComponent : MonoBehaviour
 {
     #region parameters
-    
+    [SerializeField]
+    private GameObject pickUp;
     #endregion
 
     #region properties
@@ -34,8 +35,16 @@ public class EnemiesCollisionComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.Instance.getEnemiesManager().bugSolved();
+        if (other.GetComponent<BulletComponent>() != null)
+        {
+            int r = Random.Range(0, 10);
+            if (r < 5)
+            {
+                Instantiate(pickUp, transform.position, new Quaternion(0, 0, 0, 0));
+            }
+        }
+
         Destroy(gameObject);
-        Destroy(other.gameObject);
+        Destroy(other.gameObject);      
     }
 }
