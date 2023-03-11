@@ -41,14 +41,14 @@ public class PlayerInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _verticalInput = Input.GetAxis("Vertical");
-        _horizontalInput = Input.GetAxis("Horizontal");
+        // GetAxisRaw para que el movimiento no sea smooth
+        _verticalInput = Input.GetAxisRaw("Vertical"); 
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
         Vector3 movementInput = new Vector3(_horizontalInput, _verticalInput, 0);
         _myPlayerMovementController.SetMovementDirection(movementInput);
 
         if(Input.GetKeyDown(KeyCode.Space)) {
-            _shootComponent.Shoot();
-            
+            _shootComponent.Shoot();       
         }
     }
 }

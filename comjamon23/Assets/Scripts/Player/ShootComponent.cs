@@ -9,7 +9,6 @@ public class ShootComponent : MonoBehaviour
     [SerializeField]
     private GameObject _bullet;
     
-
     public void Shoot() {
         Instantiate(_bullet, _myShootController.position, _myShootController.rotation);
     }
