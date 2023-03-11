@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemiesMovementController : MonoBehaviour
 {
     #region parameters
-    private int cont = 0;
-    private float _speed = 0.1f;
+    private float cont = 0;
+    private float _speed = 0.05f;
     private float _elapsedTime = 0f;
     private float _duration = 0.1f;
     #endregion
@@ -36,8 +36,8 @@ public class EnemiesMovementController : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime > _duration)
         {
-            cont++;
-            newPos = new Vector3(3*Mathf.Sin(cont), -_speed, 0);
+            cont += 0.5f;
+            newPos = new Vector3(2*Mathf.Sin(cont), -_speed, 0);
             _myTransform.Translate(newPos);
             _elapsedTime = 0;
         }     
