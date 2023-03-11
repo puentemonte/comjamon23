@@ -6,19 +6,20 @@ public class EnemiesManager : MonoBehaviour
 {
     #region parameters
     private float _elapsedTime = 0f;
-    private float _duration = 1f;
-    Camera camera;
+    private float _duration = 2f;
     float halfHeight;
     float halfWidth;
     float horizontalMin;
     float horizontalMax;
     float verticalMin;
     float verticalMax;
+    int offset = 5;
+    private float enemiesKilled;
     #endregion
 
     #region properties
     [SerializeField]
-    private GameObject _simpleEnemy;
+    private GameObject[] _enemies;
     #endregion
 
     #region references
@@ -26,13 +27,16 @@ public class EnemiesManager : MonoBehaviour
     #endregion
 
     #region methods
-
+    public void bugSolved()
+    {
+        enemiesKilled++;
+    }
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        Camera camera = Camera.main;
         halfHeight = camera.orthographicSize;
         halfWidth = camera.aspect * halfHeight;
 
@@ -49,9 +53,13 @@ public class EnemiesManager : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime > _duration)
         {
-            Vector3 v = new Vector3(Random.Range(horizontalMin, horizontalMax), Random.Range(verticalMax, verticalMax - verticalMax/5), 0);
-            Instantiate(_simpleEnemy, v, new Quaternion(0,0,0,0));
+            Vector3 v = new Vector3(Random.Range(horizontalMin + offset, horizontalMax - offset), Random.Range(verticalMax, verticalMax - verticalMax/5), 0);
+            Instantiate(_enemies[Random.Range(0, _enemies.Length)], v, new Quaternion(0,0,0,0));
             _elapsedTime = 0;
+        }
+        if(enemiesKilled > 10)
+        {
+            GameManager.Instance.changeScene("Puzzle");
         }
     }
 }
