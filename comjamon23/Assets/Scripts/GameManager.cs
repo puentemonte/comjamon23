@@ -10,15 +10,22 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region properties
-    static private GameManager _instance;
+    private static GameManager _instance;
 
-    static public GameManager Instance
+    public static GameManager Instance
     {
         get
         {
             return _instance;
         }
     }
+
+    private bool[] _personajes = new bool[] { true, false, false, false, false, false, false, false };
+    public bool[] Personajes
+    {
+        get {return _personajes; }
+    }
+
     #endregion
 
     #region references
@@ -42,9 +49,15 @@ public class GameManager : MonoBehaviour
     {
         solved++;
     }
+
+    public void DesbloqueaPersonaje(int pos)
+    {
+        _personajes[pos] = true;
+    }
+
     #endregion  
 
-    private void Awake()
+   private void Awake()
     {
         if (_instance == null)
         {
@@ -56,7 +69,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame

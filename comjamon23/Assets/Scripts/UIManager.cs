@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
     #region References
     [SerializeField]
     private GameObject[] _personajesBlock;
-    [SerializeField]
     private bool[] _personajes;
     #endregion
 
@@ -24,12 +23,13 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _personajes = new bool[] { true, false, false, false, false, false, false, false };
+       _personajes = GameManager.Instance.Personajes;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Desbloquea(_personajesBlock);
+       _personajes = GameManager.Instance.Personajes;
+       Desbloquea(_personajesBlock);
     }
 }
