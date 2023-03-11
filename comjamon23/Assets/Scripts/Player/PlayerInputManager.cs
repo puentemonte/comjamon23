@@ -6,7 +6,7 @@ public class PlayerInputManager : MonoBehaviour
 {
 
     #region parameters
-
+    bool pressedSpace;
     #endregion
 
     #region properties
@@ -42,13 +42,21 @@ public class PlayerInputManager : MonoBehaviour
     void Update()
     {
         // GetAxisRaw para que el movimiento no sea smooth
-        _verticalInput = Input.GetAxisRaw("Vertical"); 
+        _verticalInput = Input.GetAxisRaw("Vertical");
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         Vector3 movementInput = new Vector3(_horizontalInput, _verticalInput, 0);
         _myPlayerMovementController.SetMovementDirection(movementInput);
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            _shootComponent.Shoot();       
+        if (Input.GetKeyDown(KeyCode.Space) && !pressedSpace)
+        {
+            pressedSpace = true;
+            _shootComponent.setFire(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && pressedSpace)
+        {
+            pressedSpace = false;
+            _shootComponent.setFire(false);
         }
     }
 }

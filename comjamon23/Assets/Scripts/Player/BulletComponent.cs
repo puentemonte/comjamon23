@@ -6,24 +6,22 @@ public class BulletComponent : MonoBehaviour
 {
     [SerializeField]
     private float _speed;
-    [SerializeField]
-    private float _maxTimeInterval = 1f;
-    private float _elapsedTime;
-    private GameObject _player;
+    private float deadZone;
+
+    private Transform _myTranform;
 
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _myTranform = gameObject.GetComponent<Transform>();
+        deadZone = Camera.main.orthographicSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector2(0, _speed * Time.deltaTime));
-        _elapsedTime += Time.deltaTime;
-        if(_elapsedTime > _maxTimeInterval){
-            Destroy(gameObject);
-        }
+        _myTranform.Translate(new Vector2(0, _speed * Time.deltaTime));
+        if (_myTranform.position.y > deadZone)
+            Destroy(gameObject);       
     }
 }
