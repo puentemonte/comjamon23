@@ -10,11 +10,11 @@ public class EnemiesCollisionComponent : MonoBehaviour
     #endregion
 
     #region properties
-    
+
     #endregion
 
     #region references
-
+    private SoundEnemiesManager _soundEnemyManager;
     #endregion
 
     #region methods
@@ -24,7 +24,7 @@ public class EnemiesCollisionComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _soundEnemyManager = GetComponent<SoundEnemiesManager>();
     }
 
     // Update is called once per frame
@@ -34,9 +34,10 @@ public class EnemiesCollisionComponent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {      
         if (other.GetComponent<BulletComponent>() != null)
         {
+            _soundEnemyManager.EligeAudioP(0, 0.8f);
             int r = Random.Range(0, 10);
             if (r < 5)
             {
@@ -45,9 +46,11 @@ public class EnemiesCollisionComponent : MonoBehaviour
         }
         if (other.GetComponent<PlayerMovementController>() != null)
         {
+            _soundEnemyManager.EligeAudioP(1, 0.2f);
             GameManager.Instance.GameOver();
         }
-        Destroy(gameObject);
-        Destroy(other.gameObject);      
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(gameObject, 0.5f);
+        Destroy(other.gameObject, 0);      
     }
 }

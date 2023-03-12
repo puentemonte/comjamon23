@@ -14,7 +14,7 @@ public class EnemiesManager : MonoBehaviour
     float verticalMin;
     float verticalMax;
     int offset = 10;
-    bool completed = false;
+    bool instance = false;
     #endregion
 
     #region properties
@@ -64,13 +64,14 @@ public class EnemiesManager : MonoBehaviour
             Instantiate(_enemies[Random.Range(0, _enemies.Length)], v, new Quaternion(0,0,0,0));
             _elapsedTime = 0;
         }
-        if(GameManager.Instance.numBugsSolved() > 10)
+        if(GameManager.Instance.numBugsSolved() > 10 && !instance)
         {
             Time.timeScale = 0;
             GameManager.Instance.levelCompleted();
             Instantiate(submited, new Vector3(0,0,0), new Quaternion(0,0,0,0));
+            instance = true;    
         }
-        if (GameManager.Instance.getGameOver())
+        if (GameManager.Instance.getGameOver() && !instance)
         {
             Time.timeScale = 0;
 
@@ -78,11 +79,14 @@ public class EnemiesManager : MonoBehaviour
                 Instantiate(timelimit, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             else
                 Instantiate(wronganswer, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            instance = true;
         }
         if(GameManager.Instance.levelStatus() && Input.GetKeyDown(KeyCode.Space))
         {
+            GameManager.Instance.setGameOver(false);
+            GameManager.Instance.setTimeLimit(false);
             GameManager.Instance.setLevelStatus(false);
-            if(GameManager.Instance.level() == 0)
+            if (GameManager.Instance.level() == 0)
                 GameManager.Instance.changeScene("PuzzleFib");
             else if(GameManager.Instance.level() == 1)
                 GameManager.Instance.changeScene("PuzzleBubble");
@@ -90,11 +94,11 @@ public class EnemiesManager : MonoBehaviour
         }
         else if(GameManager.Instance.getGameOver() && Input.GetKeyDown(KeyCode.Space))
         {
+            GameManager.Instance.changeScene("Juez");
+            Time.timeScale = 1;
             GameManager.Instance.setGameOver(false);
             GameManager.Instance.setTimeLimit(false);
             GameManager.Instance.setLevelStatus(false);
-            GameManager.Instance.changeScene("Juez");
-            Time.timeScale = 1;
         }
     }
 }

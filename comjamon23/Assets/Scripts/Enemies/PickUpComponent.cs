@@ -7,10 +7,12 @@ public class PickUpComponent : MonoBehaviour
     #region parameters
     private float _speed = 4f;
     private float deadZone;
+    private bool pick = false;
     #endregion
 
     #region properties
     private Transform _myTransform;
+    private SoundPlayerManager _soundPlayerManager;
     #endregion
 
     #region methods
@@ -18,8 +20,11 @@ public class PickUpComponent : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovementController>() != null)
         {
+            _soundPlayerManager.EligeAudioP(0, 0.2f);
             GameManager.Instance.bugSolved();
-            Destroy(gameObject);
+            pick = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject, 0.7f);
         }
     }
     #endregion
@@ -27,7 +32,7 @@ public class PickUpComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _soundPlayerManager = GetComponent<SoundPlayerManager>();
         _myTransform = transform;
         deadZone = -Camera.main.orthographicSize;
     }
@@ -35,8 +40,11 @@ public class PickUpComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _myTransform.Translate(new Vector2(0, - _speed * Time.deltaTime));
-        if (_myTransform.position.y < deadZone)
-            Destroy(gameObject);
+        if (!pick)
+        {
+            _myTransform.Translate(new Vector2(0, -_speed * Time.deltaTime));
+            if (_myTransform.position.y < deadZone)
+                Destroy(gameObject);
+        }      
     }
 }

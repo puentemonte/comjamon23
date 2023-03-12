@@ -12,14 +12,22 @@ public class ShootComponent : MonoBehaviour
     private Transform _myShootController;
     [SerializeField]
     private GameObject _bullet;
-    
+
+    private SoundPlayerManager _soundPlayerManager;
+
     public void setFire(bool nFire)
     {
         fire = nFire;
     }
 
     public void Shoot() {
+        _soundPlayerManager.EligeAudioP(0, 0.03f);
         Instantiate(_bullet, _myShootController.position, _myShootController.rotation);
+    }
+
+    private void Start()
+    {
+        _soundPlayerManager = GetComponent<SoundPlayerManager>();
     }
 
     void Update() {
