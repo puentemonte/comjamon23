@@ -7,6 +7,8 @@ public class SlotScript : MonoBehaviour, IDropHandler
 {
     [SerializeField]
     private int id;
+    [SerializeField]
+    private GameObject puzlemanager;
 
     private SoundPlayerManager _soundPlayerManager;
 
@@ -18,11 +20,29 @@ public class SlotScript : MonoBehaviour, IDropHandler
             _soundPlayerManager.EligeAudioP(0, 0.2f);
             if (_eventData.pointerDrag.GetComponent<DragAndDrop>().getId() == id)
             {
-                Debug.Log("correct");
+                int i = 0;
+                while (i < puzlemanager.GetComponent<PuzleManager>().corrects.Length)
+                {
+                    if (!puzlemanager.GetComponent<PuzleManager>().corrects[i])
+                    {
+                        puzlemanager.GetComponent<PuzleManager>().corrects[i] = true;
+                        i = puzlemanager.GetComponent<PuzleManager>().corrects.Length + 1;
+                    }
+                    i++;
+                }
             }
             else
             {
-                Debug.Log("incorrect");
+                int i = 0;
+                while (i < puzlemanager.GetComponent<PuzleManager>().corrects.Length)
+                {
+                    if (puzlemanager.GetComponent<PuzleManager>().corrects[i])
+                    {
+                        puzlemanager.GetComponent<PuzleManager>().corrects[i] = false;
+                        i = puzlemanager.GetComponent<PuzleManager>().corrects.Length + 1;
+                    }
+                    i++;
+                }
             }
             _eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = this.GetComponent<RectTransform>().anchoredPosition; 
         }
