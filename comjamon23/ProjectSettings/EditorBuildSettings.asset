@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PruebaSeleccion.unity
     guid: 76d85cb5286f20947897d6c905a4095d
+  - enabled: 1
+    path: Assets/Scenes/PuzzleBubble.unity
+    guid: 653bfc2d1baa00f46baa6f4856c3973b
   m_configObjects: {}
