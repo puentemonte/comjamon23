@@ -18,7 +18,7 @@ public class PickUpComponent : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovementController>() != null)
         {
-            GameManager.Instance.getEnemiesManager().bugSolved();
+            GameManager.Instance.bugSolved();
             Destroy(gameObject);
         }
     }

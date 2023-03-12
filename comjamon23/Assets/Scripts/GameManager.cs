@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     #region parameters
     int solved;
     bool completed = false;
+    bool gameOver = false;
+    private float _elapsedTime = 0f;
+    private float _duration = 180f;
+    private float enemiesKilled;
     #endregion
 
     #region properties
@@ -25,23 +29,15 @@ public class GameManager : MonoBehaviour
     {
         get {return _personajes; }
     }
-
     #endregion
 
     #region references
-    [SerializeField]
-    private EnemiesManager enemiesManager;
     #endregion
 
     #region methods
     public void changeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    public EnemiesManager getEnemiesManager()
-    {
-        return enemiesManager;
     }
 
     public void solvedBugs()
@@ -68,6 +64,32 @@ public class GameManager : MonoBehaviour
     {
         completed = _completed;
     }
+
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
+
+    public void setGameOver(bool gOver)
+    {
+        gameOver = gOver;
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+    }
+
+    public float numBugsSolved()
+    {
+        return enemiesKilled;
+    }
+
+    public void bugSolved()
+    {
+        enemiesKilled++;
+    }
+
     #endregion  
 
    private void Awake()
@@ -87,5 +109,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver || completed)
+        {
+            _elapsedTime = 0;
+            enemiesKilled = 0;
+        }
+        if (SceneManager.GetActiveScene().name == "SI_Scene")
+        {
+            _elapsedTime += Time.deltaTime;
+            if(_elapsedTime > _duration)
+            {
+                GameOver();
+                _elapsedTime = 0;
+            }
+        }
     }
 }

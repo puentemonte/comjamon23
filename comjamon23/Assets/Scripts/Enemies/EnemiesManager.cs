@@ -14,7 +14,6 @@ public class EnemiesManager : MonoBehaviour
     float verticalMin;
     float verticalMax;
     int offset = 10;
-    private float enemiesKilled;
     bool completed = false;
     #endregion
 
@@ -23,6 +22,8 @@ public class EnemiesManager : MonoBehaviour
     private GameObject[] _enemies;
     [SerializeField]
     private GameObject submited;
+    [SerializeField]
+    private GameObject wronganswer;
     #endregion
 
     #region references
@@ -30,9 +31,10 @@ public class EnemiesManager : MonoBehaviour
     #endregion
 
     #region methods
-    public void bugSolved()
+
+    public GameObject getWrongAnswer()
     {
-        enemiesKilled++;
+        return wronganswer;
     }
     #endregion
 
@@ -60,16 +62,24 @@ public class EnemiesManager : MonoBehaviour
             Instantiate(_enemies[Random.Range(0, _enemies.Length)], v, new Quaternion(0,0,0,0));
             _elapsedTime = 0;
         }
-        if(enemiesKilled > 10)
+        if(GameManager.Instance.numBugsSolved() > 10)
         {
-            Time.timeScale = 0;
             GameManager.Instance.levelCompleted();
-            submited.SetActive(true);
+            Instantiate(submited, new Vector3(0,0,0), new Quaternion(0,0,0,0));
+        }
+        if (GameManager.Instance.getGameOver())
+        {
+            Instantiate(wronganswer, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
         if(GameManager.Instance.levelStatus() && Input.GetKeyDown(KeyCode.Space))
         {
             GameManager.Instance.setLevelStatus(false);
-            GameManager.Instance.changeScene("Puzzle");        
+            GameManager.Instance.changeScene("PuzzleFib");        
+        }
+        else if(GameManager.Instance.getGameOver() && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.setGameOver(false);
+            GameManager.Instance.changeScene("SI_Scene");
         }
     }
 }
