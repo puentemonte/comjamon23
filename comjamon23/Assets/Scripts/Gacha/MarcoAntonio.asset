@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MarcoAntonio
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: cdcdb1f2f2bc0694bbb1c6bfe40fae54, type: 3}
-  name: Pedro Pablo (otra vez?)
+  name: Pedro Pablo
