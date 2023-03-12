@@ -43,6 +43,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void loadFib()
+    {
+        actLevel = 0;
+        SceneManager.LoadScene("SI_Scene");
+    }
+
+    public void loadBubble()
+    {
+        actLevel = 1;
+        SceneManager.LoadScene("SI_Scene");
+    }
+
     public void solvedBugs()
     {
         solved++;
