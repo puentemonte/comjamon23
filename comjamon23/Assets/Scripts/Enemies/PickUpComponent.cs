@@ -13,6 +13,9 @@ public class PickUpComponent : MonoBehaviour
     #region properties
     private Transform _myTransform;
     private SoundPlayerManager _soundPlayerManager;
+    private SpriteRenderer _mySpriteRenderer;
+    [SerializeField]
+    private Sprite[] sprites;
     #endregion
 
     #region methods
@@ -32,9 +35,12 @@ public class PickUpComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _mySpriteRenderer = GetComponent<SpriteRenderer>();
         _soundPlayerManager = GetComponent<SoundPlayerManager>();
         _myTransform = transform;
         deadZone = -Camera.main.orthographicSize;
+        int n = Random.Range(0, sprites.Length);
+        _mySpriteRenderer.sprite = sprites[n];
     }
 
     // Update is called once per frame

@@ -46,11 +46,12 @@ public class EnemiesCollisionComponent : MonoBehaviour
         }
         if (other.GetComponent<PlayerMovementController>() != null)
         {
-            _soundEnemyManager.EligeAudioP(1, 0.2f);
+            _soundEnemyManager.EligeAudioP(1, 0.4f);
             GameManager.Instance.GameOver();
         }
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        other.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject, 0.5f);
-        Destroy(other.gameObject, 0);      
+        Destroy(other.gameObject, 0.5f);      
     }
 }
