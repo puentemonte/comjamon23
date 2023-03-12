@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private float _elapsedTime = 0f;
     private float _duration = 10;
     private float enemiesKilled;
+    private int actLevel;
     #endregion
 
     #region properties
@@ -101,9 +102,23 @@ public class GameManager : MonoBehaviour
         timelimit = tLimit;
     }
 
-    #endregion  
+    public int level()
+    {
+        return actLevel;
+    }
 
-   private void Awake()
+    public void setLevelFib()
+    {
+        actLevel = 0;
+    }
+
+    public void setLevelBubble()
+    {
+        actLevel = 1;
+    }
+    #endregion
+
+    private void Awake()
     {
         if (_instance == null)
         {

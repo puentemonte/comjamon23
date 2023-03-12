@@ -82,7 +82,10 @@ public class EnemiesManager : MonoBehaviour
         if(GameManager.Instance.levelStatus() && Input.GetKeyDown(KeyCode.Space))
         {
             GameManager.Instance.setLevelStatus(false);
-            GameManager.Instance.changeScene("PuzzleFib");
+            if(GameManager.Instance.level() == 0)
+                GameManager.Instance.changeScene("PuzzleFib");
+            else if(GameManager.Instance.level() == 1)
+                GameManager.Instance.changeScene("PuzzleBubble");
             Time.timeScale = 1;
         }
         else if(GameManager.Instance.getGameOver() && Input.GetKeyDown(KeyCode.Space))
