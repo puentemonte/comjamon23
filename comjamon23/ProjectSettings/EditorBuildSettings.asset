@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4a5331c5bd9a23c45af2714152a4f421
   - enabled: 1
+    path: Assets/Scenes/InitialScene.unity
+    guid: 270aa3bb60117b9459d386cc9f624dec
+  - enabled: 0
     path: Assets/Scenes/Prueba.unity
     guid: 6582d37ce40e7ff429f275b2e674ee1a
   - enabled: 1
@@ -23,7 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juez.unity
     guid: cea6eb910174b0f4c8e0c5d0f8122b4c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PruebaSeleccion.unity
     guid: 76d85cb5286f20947897d6c905a4095d
   - enabled: 1
@@ -35,7 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gacha.unity
     guid: db8ae3b234c889e49b5f14cab09f2a35
-  - enabled: 1
-    path: Assets/Scenes/InitialScene.unity
-    guid: 270aa3bb60117b9459d386cc9f624dec
   m_configObjects: {}
