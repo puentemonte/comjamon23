@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float _duration = 180;
     private float enemiesKilled;
     private int actLevel;
+    private int problemsSolved = 0;
     #endregion
 
     #region properties
@@ -115,6 +116,21 @@ public class GameManager : MonoBehaviour
     public void setLevelBubble()
     {
         actLevel = 1;
+    }
+
+    public int getProblemsSolved()
+    {
+        return problemsSolved;
+    }
+
+    public void problemSolved()
+    {
+        problemsSolved++;
+    }
+
+    public void tryGacha()
+    {
+        problemsSolved--;
     }
     #endregion
 
