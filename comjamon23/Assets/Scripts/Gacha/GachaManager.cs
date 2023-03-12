@@ -53,7 +53,7 @@ public class GachaManager : MonoBehaviour
         {
             GameManager.Instance.DesbloqueaPersonaje(1);
         }
-        else if (card.card.name == "Marco Antonio")
+        else if (card.card.name == "Pedro Pablo otra vez?")
         {
             GameManager.Instance.DesbloqueaPersonaje(2);
         }
@@ -65,7 +65,7 @@ public class GachaManager : MonoBehaviour
         {
             GameManager.Instance.DesbloqueaPersonaje(4);
         }
-        else if (card.card.name == "Guille Levi")
+        else if (card.card.name == "Guille Ackerman")
         {
             GameManager.Instance.DesbloqueaPersonaje(5);
         }
@@ -73,7 +73,7 @@ public class GachaManager : MonoBehaviour
         {
             GameManager.Instance.DesbloqueaPersonaje(6);
         }
-        else if (card.card.name == "Pedro Pablo Camiseta")
+        else if (card.card.name == "Pedro Pablo WA")
         {
             GameManager.Instance.DesbloqueaPersonaje(7);
         }

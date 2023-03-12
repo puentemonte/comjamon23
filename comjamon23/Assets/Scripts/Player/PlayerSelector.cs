@@ -13,13 +13,13 @@ public class PlayerSelector : MonoBehaviour
     {
         if (GameManager.Instance.Personajes[index] == true)
         {
-            PlayerStorage.playerPrefab = this.prefabs[index];
+            PlayerStorage.playerPrefab = prefabs[index];
         }
     }
     #endregion
     void Start()
     {
-        this.Select(0);
+        Select(0);
     }
 
 }

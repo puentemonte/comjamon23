@@ -52,6 +52,8 @@ public class EnemiesManager : MonoBehaviour
 
         verticalMin = -halfHeight;
         verticalMax = halfHeight;
+
+        wronganswer.transform.localScale = new Vector3(2,2,0);
     }
 
     // Update is called once per frame

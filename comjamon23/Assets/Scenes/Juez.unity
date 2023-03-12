@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 44453482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &44453482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1325,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 493582042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &493582042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1591,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 540985460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &540985460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1996,7 +2032,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 755941482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &755941482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3556,7 +3604,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1576436492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1576436492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4595,7 +4655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1953255611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1953255611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4830,7 +4902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2066080309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840341641}
+        m_TargetAssemblyTypeName: PlayerSelector, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2066080309
 MonoBehaviour:
   m_ObjectHideFlags: 0

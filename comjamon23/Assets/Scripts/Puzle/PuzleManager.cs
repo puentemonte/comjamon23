@@ -50,7 +50,9 @@ public class PuzleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RED.transform.localScale = new Vector3(25, 25, 0);
+        GREEN.transform.localScale = new Vector3(25, 25, 0);
+
     }
 
     // Update is called once per frame
@@ -58,10 +60,13 @@ public class PuzleManager : MonoBehaviour
     {
         if (c && Input.GetKeyDown(KeyCode.Space))
         {
+            Time.timeScale = 1;
             GameManager.Instance.changeScene("Juez");
         }
         else if (w && Input.GetKeyDown(KeyCode.Space))
         {
+            Time.timeScale = 1;
+
             GameManager.Instance.changeScene("Juez");
         }
     }

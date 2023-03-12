@@ -6,7 +6,6 @@ public class PlayerSpawner : MonoBehaviour
 {
     void Start()
     {
-        Instantiate(PlayerStorage.playerPrefab, this.transform.position, this.transform.rotation);
+        Instantiate(PlayerStorage.playerPrefab, new Vector3(0,0,0), new Quaternion(0,0,0,0));
     }
-
 }

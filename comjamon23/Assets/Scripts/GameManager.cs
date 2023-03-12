@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    private bool[] _personajes = new bool[] { false, false, false, false, false, false, false, false };
+    private bool[] _personajes = new bool[] { true, false, false, false, false, false, false, false };
     public bool[] Personajes
     {
         get {return _personajes; }
