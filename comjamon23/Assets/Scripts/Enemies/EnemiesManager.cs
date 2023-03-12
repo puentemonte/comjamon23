@@ -24,6 +24,8 @@ public class EnemiesManager : MonoBehaviour
     private GameObject submited;
     [SerializeField]
     private GameObject wronganswer;
+    [SerializeField]
+    private GameObject timelimit;
     #endregion
 
     #region references
@@ -64,22 +66,32 @@ public class EnemiesManager : MonoBehaviour
         }
         if(GameManager.Instance.numBugsSolved() > 10)
         {
+            Time.timeScale = 0;
             GameManager.Instance.levelCompleted();
             Instantiate(submited, new Vector3(0,0,0), new Quaternion(0,0,0,0));
         }
         if (GameManager.Instance.getGameOver())
         {
-            Instantiate(wronganswer, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            Time.timeScale = 0;
+
+            if (GameManager.Instance.getTimeLimit())
+                Instantiate(timelimit, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            else
+                Instantiate(wronganswer, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         }
         if(GameManager.Instance.levelStatus() && Input.GetKeyDown(KeyCode.Space))
         {
             GameManager.Instance.setLevelStatus(false);
-            GameManager.Instance.changeScene("PuzzleFib");        
+            GameManager.Instance.changeScene("PuzzleFib");
+            Time.timeScale = 1;
         }
         else if(GameManager.Instance.getGameOver() && Input.GetKeyDown(KeyCode.Space))
         {
             GameManager.Instance.setGameOver(false);
+            GameManager.Instance.setTimeLimit(false);
+            GameManager.Instance.setLevelStatus(false);
             GameManager.Instance.changeScene("SI_Scene");
+            Time.timeScale = 1;
         }
     }
 }

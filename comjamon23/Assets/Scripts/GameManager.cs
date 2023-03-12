@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
     int solved;
     bool completed = false;
     bool gameOver = false;
+    bool timelimit = false;
     private float _elapsedTime = 0f;
-    private float _duration = 180f;
+    private float _duration = 10;
     private float enemiesKilled;
     #endregion
 
@@ -90,6 +91,16 @@ public class GameManager : MonoBehaviour
         enemiesKilled++;
     }
 
+    public bool getTimeLimit()
+    {
+        return timelimit;
+    }
+
+    public void setTimeLimit(bool tLimit)
+    {
+        timelimit = tLimit;
+    }
+
     #endregion  
 
    private void Awake()
@@ -120,6 +131,7 @@ public class GameManager : MonoBehaviour
             if(_elapsedTime > _duration)
             {
                 GameOver();
+                timelimit = true;
                 _elapsedTime = 0;
             }
         }
