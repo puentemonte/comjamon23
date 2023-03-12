@@ -13,17 +13,8 @@ public class GachaManager : MonoBehaviour
     GameObject characterCard;
     Card card;
 
-    private SoundPlayerManager _soundPlayerManager;
-
-    private void Start()
-    {
-        _soundPlayerManager = GetComponent<SoundPlayerManager>();
-    }
-
     public void Gacha()
     {
-        _soundPlayerManager.EligeAudioP(0, 0.3f);
-
         characterCard = Instantiate(characterCardGO, pos.position, Quaternion.identity) as GameObject;
         characterCard.transform.SetParent(parent);
         characterCard.transform.localScale = new Vector3(1,1,1);
