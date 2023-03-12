@@ -24,6 +24,7 @@ public class GachaManager : MonoBehaviour
         string r;
         if(rnd <= gacha[0].rate) // normales
         {
+            
             r = gacha[0].rarity;
         }
         else // legendarios
@@ -31,6 +32,8 @@ public class GachaManager : MonoBehaviour
             r = gacha[1].rarity;
         }
         card.card = Reward(r);
+        Personaje();
+        
     }
     public CardInfo Reward(string rarity)
     {
@@ -38,7 +41,41 @@ public class GachaManager : MonoBehaviour
         CardInfo[] reward = gr.reward;
 
         int rnd = UnityEngine.Random.Range(0, 4);
-        Debug.Log(reward[rnd]);
         return reward[rnd];
+    }
+    public void Personaje()
+    {
+        if (card.card.name == "Cleon")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(0);
+        }
+        else if(card.card.name == "Guille")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(1);
+        }
+        else if (card.card.name == "Marco Antonio")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(2);
+        }
+        else if (card.card.name == "Pedro Pablo")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(3);
+        }
+        else if (card.card.name == "Cleon Lemur")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(4);
+        }
+        else if (card.card.name == "Guille Levi")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(5);
+        }
+        else if (card.card.name == "Marco Antonio Pen")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(6);
+        }
+        else if (card.card.name == "Pedro Pablo Camiseta")
+        {
+            GameManager.Instance.DesbloqueaPersonaje(7);
+        }
     }
 }
