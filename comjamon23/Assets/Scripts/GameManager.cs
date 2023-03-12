@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     bool gameOver = false;
     bool timelimit = false;
     private float _elapsedTime = 0f;
-    private float _duration = 10;
+    private float _duration = 180;
     private float enemiesKilled;
     private int actLevel;
     #endregion

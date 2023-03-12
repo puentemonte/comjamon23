@@ -15,8 +15,8 @@ public class GachaManager : MonoBehaviour
 
     public void Gacha()
     {
-        if(characterCard == null)
-        {
+        //if(characterCard == null)
+        //{
             characterCard = Instantiate(characterCardGO, pos.position, Quaternion.identity) as GameObject;
             characterCard.transform.SetParent(parent);
             characterCard.transform.localScale = new Vector3(1,1,1);
@@ -27,12 +27,11 @@ public class GachaManager : MonoBehaviour
             {
                 if(rnd <= gacha[i].rate)
                 {
-
                    card.card = Reward(gacha[i].rarity);
-                    return;
+                   return;
                 }
             }
-        }
+       // }
     }
     public CardInfo Reward(string rarity)
     {
@@ -40,6 +39,7 @@ public class GachaManager : MonoBehaviour
         CardInfo[] reward = gr.reward;
 
         int rnd = UnityEngine.Random.Range(0, reward.Length);
+        Debug.Log(reward[rnd]);
         return reward[rnd];
     }
 }
