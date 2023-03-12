@@ -10,7 +10,7 @@ public class EnemiesCollisionComponent : MonoBehaviour
     #endregion
 
     #region properties
-    private PolygonCollider2D _mycol;
+
     #endregion
 
     #region references
@@ -24,7 +24,7 @@ public class EnemiesCollisionComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _mycol = gameObject.GetComponent<PolygonCollider2D>();
+
     }
 
     // Update is called once per frame

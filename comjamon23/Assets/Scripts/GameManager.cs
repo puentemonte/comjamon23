@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     #region parameters
     int solved;
+    bool completed = false;
     #endregion
 
     #region properties
@@ -43,7 +44,6 @@ public class GameManager : MonoBehaviour
         return enemiesManager;
     }
 
-
     public void solvedBugs()
     {
         solved++;
@@ -54,6 +54,20 @@ public class GameManager : MonoBehaviour
         _personajes[pos] = true;
     }
 
+    public void levelCompleted()
+    {
+        completed = true;
+    }
+
+    public bool levelStatus()
+    {
+        return completed;
+    }
+
+    public void setLevelStatus(bool _completed)
+    {
+        completed = _completed;
+    }
     #endregion  
 
    private void Awake()
@@ -73,6 +87,5 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 }

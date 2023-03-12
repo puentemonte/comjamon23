@@ -13,13 +13,16 @@ public class EnemiesManager : MonoBehaviour
     float horizontalMax;
     float verticalMin;
     float verticalMax;
-    int offset = 5;
+    int offset = 10;
     private float enemiesKilled;
+    bool completed = false;
     #endregion
 
     #region properties
     [SerializeField]
     private GameObject[] _enemies;
+    [SerializeField]
+    private GameObject submited;
     #endregion
 
     #region references
@@ -59,7 +62,14 @@ public class EnemiesManager : MonoBehaviour
         }
         if(enemiesKilled > 10)
         {
-            GameManager.Instance.changeScene("Puzzle");
+            Time.timeScale = 0;
+            GameManager.Instance.levelCompleted();
+            submited.SetActive(true);
+        }
+        if(GameManager.Instance.levelStatus() && Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.setLevelStatus(false);
+            GameManager.Instance.changeScene("Puzzle");        
         }
     }
 }
