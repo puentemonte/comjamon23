@@ -238,14 +238,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gacha:
   - rarity: Normal
-    rate: 70
+    rate: 95
     reward:
     - {fileID: 11400000, guid: dbea246c801282449b484d15a8f272e2, type: 2}
     - {fileID: 11400000, guid: 88ca0f0ff189ec347a170ac2d0b02238, type: 2}
     - {fileID: 11400000, guid: 5d4556350a4811541b730d3ab5d40ec4, type: 2}
     - {fileID: 11400000, guid: 9fd749a90eb4cdd4f8dbb848d13febcb, type: 2}
   - rarity: Legendario
-    rate: 30
+    rate: 5
     reward:
     - {fileID: 11400000, guid: 47b557f3fba61c7499526a3eddaa925b, type: 2}
     - {fileID: 11400000, guid: 2c7b4f6a9aaf30e47b8ca9bf73441497, type: 2}
