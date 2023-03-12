@@ -93,7 +93,7 @@ public class EnemiesManager : MonoBehaviour
             GameManager.Instance.setGameOver(false);
             GameManager.Instance.setTimeLimit(false);
             GameManager.Instance.setLevelStatus(false);
-            GameManager.Instance.changeScene("SI_Scene");
+            GameManager.Instance.changeScene("Juez");
             Time.timeScale = 1;
         }
     }
