@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Cleon_text : MonoBehaviour
 {
     [SerializeField]
-    private GameObject text;
-    bool k = false;
-    int i = 0;
- 
+    private GameObject textBox;
+    bool endConv = false;
+    int i = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +19,15 @@ public class Cleon_text : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && k)
+        if (Input.GetKeyDown(KeyCode.Space) && endConv)
             GameManager.Instance.changeScene("Juez");
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && i < transform.childCount)
         {
-            text.SetActive(true);
-            k = true;
+            textBox.SetActive(true);
+            transform.GetChild(i - 1).gameObject.SetActive(false);
+            transform.GetChild(i).gameObject.SetActive(true);
+            i++;
+            if (i >= transform.childCount) endConv = true;
         }
     }
 }
