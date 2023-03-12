@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6691269549591435906}
   - component: {fileID: 8732963846732589061}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Cleon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,8 +152,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06858921, y: 0.24006224}
-  m_Size: {x: 1.2057676, y: 2.1660166}
+  m_Offset: {x: 0.004923185, y: 0.21380743}
+  m_Size: {x: 2.0039067, y: 2.869641}
   m_Direction: 0
 --- !u!114 &5373552832861378063
 MonoBehaviour:
