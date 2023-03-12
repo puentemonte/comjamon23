@@ -7,5 +7,4 @@ public class CardInfo : ScriptableObject
 {
     public Sprite image;
     public string name;
-
 }
