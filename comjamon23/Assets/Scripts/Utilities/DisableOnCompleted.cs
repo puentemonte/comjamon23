@@ -13,7 +13,7 @@ public class DisableOnCompleted : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.levelStatus())
+        if (GameManager.Instance.levelStatus() || GameManager.Instance.getGameOver())
         {
             gameObject.SetActive(false);
         }

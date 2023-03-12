@@ -10,7 +10,7 @@ public class EnemiesCollisionComponent : MonoBehaviour
     #endregion
 
     #region properties
-
+    
     #endregion
 
     #region references
@@ -43,7 +43,10 @@ public class EnemiesCollisionComponent : MonoBehaviour
                 Instantiate(pickUp, transform.position, new Quaternion(0, 0, 0, 0));
             }
         }
-
+        if (other.GetComponent<PlayerMovementController>() != null)
+        {
+            GameManager.Instance.GameOver();
+        }
         Destroy(gameObject);
         Destroy(other.gameObject);      
     }
